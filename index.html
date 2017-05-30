@@ -14,42 +14,31 @@
   <body class="container">
     <h1 class="text-center">Swing</h1> 
 
-    <div class="row" id="sign-in-page">
+    <div class="row" id="welcome-page">
       <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 bg-info">
-        <h2 class="text-center">Login / Signup</h2>
-        <form id="sign-in">
+        <h2 class="text-center">Welcome!</h2>
+        <form id="start">
           <div class="row">
             <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-              <div class="form-group">
-                <label for="email">Email address</label>
-                <input type="email" class="form-control" id="email" placeholder="Email">
-              </div>
-              <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" class="form-control" id="password" placeholder="Password">
-              </div> 
-              <button class="btn btn-primary" type="submit">Submit</button>
+              <h3>Welcome to the local swing dance finder</h3> 
+              <button class="btn btn-primary" type="submit">Get started</button>
               <br>
             </div> <!-- col -->
           </div> <!-- row -->
         </form>
       </div> <!-- col -->
-    </div> <!-- row sign-in-page -->
+    </div> <!-- row welcome-page -->
 
     <div class="row" id="search-page">
       <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 bg-info">
         <h2 class="text-center">Search</h2>
-        <button class="btn btn-primary" id="log-out">Log Out</button><br><br>
-        <div class="row">
-          <div class="bg-primary col-xs-12 col-sm-6">
-            <p></p>
-            <p>Box One</p>
-          </div>
-          <div class="bg-warning col-xs-12 col-sm-6">
-            <p></p>
-            <p>Box Two</p>
-          </div>  
-        </div>      
+        <form id="search">
+          <p>Please enter your zipcode</p>
+          <input type="text" name="zipcode" id="zipcode" required>
+
+          <button class="btn btn-primary" type="submit">Get started</button>
+          <br>              
+        </form>    
       </div>
     </div>
   </body>
