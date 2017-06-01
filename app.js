@@ -1,5 +1,5 @@
 var MAPS_BASE_URL = 'https://maps.googleapis.com/maps/api/geocode/json'
-var FACEBOOK_BASE_URL = 'graph.facebook.com/v2.5/search'
+var FACEBOOK_BASE_URL = 'https://graph.facebook.com/v2.9/search'
 
 
 $(document).ready(function() {
@@ -46,31 +46,37 @@ function getDataFromMapsApi(searchTerm, callback) {
 
 function recieveMapsData(data) {
     var resultElement = '';
-    if (data.items.length > 0) {
-        data.items.forEach(function(item) {
-        });
+    console.log(data);
+    if (data.results.length > 0) {
+      var latitude = data.results[0].geometry.location.lat
+      var longitude = data.results[0].geometry.location.lng
+      var dist = 100000
+      getDataFromFacebookApi(longitude, latitude, dist) 
+
     } else {
         resultElement += '<p>No results</p>';
     }
-    $("#search-page").hide();
-    $("#results-page").show();
+    // $("#search-page").hide();
+    // $("#results-page").show();
 
     // $('.js-search-results').html(resultElement);
 }
 
-function getDataFromFacebookApi(longitude, latitude, dist, callback) {
+function getDataFromFacebookApi(longitude, latitude, dist) {
     var settings = {
-        url: MAPS_BASE_URL,
+        url: FACEBOOK_BASE_URL,
         data: {
-            center: longitude + ',' + latitude,
+            center: latitude  + ',' + longitude,
             distance: dist,
             type: 'place',
-            key: 'EAAagTuIJs0EBAOwjejepM0DuMmoAZCZANHdVcZAYHIOmccjo4yNcsgwmqXQq4CKZBZCeBw2pda191BYX8mkLUZC4sP24YgKDBGV2njETZBXmL77oj7NwDi6HQANWiLUKIWlN0NlhFIhpUmpvrdSq9kjEPheTZB0IY1JFmaXVN2UY9n8F1S0uaoZCKbuxi9m3AKkcZD',
+            key: 'EAAagTuIJs0EBACrfTvjmo0IlPpW4Pmx11IbweCH1jk5QcKsZCdEpEF6LTdLaYgXitaA2jcneHFVlcbTB5DdfDMxmCFMVybGZC0D4Rqjrqd5ovXrsjNs2XCCMKhGEod4T6s1bZAAskNfR4ZCQLkicocoWBrZAjfbZCJg5Wk9xhaXl2bZAohZC32QEdZAcPgLZCozjYZD',
             q: 'swing_dance'
         },
         dataType: 'json',
         type: 'GET',
-        success: callback
+        success: function(result) {
+          console.log(result);
+        }
     };
     $.ajax(settings);
 }
