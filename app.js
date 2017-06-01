@@ -1,4 +1,4 @@
-var MAPS_BASE_URL = 'https://maps.googleapis.com/maps/api/geocode/'
+var MAPS_BASE_URL = 'https://maps.googleapis.com/maps/api/geocode/json'
 var FACEBOOK_BASE_URL = 'graph.facebook.com/v2.5/search'
 
 
@@ -34,10 +34,8 @@ function getDataFromMapsApi(searchTerm, callback) {
     var settings = {
         url: MAPS_BASE_URL,
         data: {
-            address: 'high+st+hasting',
             components: 'postal_code:' + searchTerm,
             key: 'AIzaSyB09YmR2_3rgQwRuLN_BDOIQiKI9hJAZJc',
-            q: searchTerm
         },
         dataType: 'json',
         type: 'GET',
