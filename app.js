@@ -20,7 +20,6 @@ $(document).ready(function() {
     e.preventDefault();
     var zipcode = $("#zipcode").val();
     getDataFromMapsApi(zipcode, recieveMapsData);
-    console.log('got here');
     // $("#search-page").hide();
     // $("#welcome-page").show();
   })
@@ -29,11 +28,11 @@ $(document).ready(function() {
 
 
 
-function getDataFromMapsApi(longitude, latitude, dist, callback) {
+function getDataFromMapsApi(searchTerm, callback) {
     console.log(searchTerm, callback);
 
     var settings = {
-        url: FACEBOOK_BASE_URL,
+        url: MAPS_BASE_URL,
         data: {
             address: 'high+st+hasting',
             components: 'postal_code:' + searchTerm,
@@ -50,7 +49,6 @@ function getDataFromMapsApi(longitude, latitude, dist, callback) {
 function recieveMapsData(data) {
     var resultElement = '';
     if (data.items.length > 0) {
-          console.log(data);
         data.items.forEach(function(item) {
         });
     } else {
@@ -62,13 +60,13 @@ function recieveMapsData(data) {
     // $('.js-search-results').html(resultElement);
 }
 
-function getDataFromFacebookApi(searchTerm, callback) {
+function getDataFromFacebookApi(longitude, latitude, dist, callback) {
     var settings = {
         url: MAPS_BASE_URL,
         data: {
             center: longitude + ',' + latitude,
             distance: dist,
-            type: 'place'
+            type: 'place',
             key: 'EAAagTuIJs0EBAOwjejepM0DuMmoAZCZANHdVcZAYHIOmccjo4yNcsgwmqXQq4CKZBZCeBw2pda191BYX8mkLUZC4sP24YgKDBGV2njETZBXmL77oj7NwDi6HQANWiLUKIWlN0NlhFIhpUmpvrdSq9kjEPheTZB0IY1JFmaXVN2UY9n8F1S0uaoZCKbuxi9m3AKkcZD',
             q: 'swing_dance'
         },
@@ -80,4 +78,4 @@ function getDataFromFacebookApi(searchTerm, callback) {
 }
 
 
-search?center=43.025015,-87.913646&distance=10000&q=swing&type=place
+// search?center=43.025015,-87.913646&distance=10000&q=swing&type=place
