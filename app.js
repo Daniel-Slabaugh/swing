@@ -69,7 +69,7 @@ function getDataFromFacebookApi(longitude, latitude, dist) {
             center: latitude  + ',' + longitude,
             distance: dist,
             type: 'place',
-            key: 'EAAagTuIJs0EBACrfTvjmo0IlPpW4Pmx11IbweCH1jk5QcKsZCdEpEF6LTdLaYgXitaA2jcneHFVlcbTB5DdfDMxmCFMVybGZC0D4Rqjrqd5ovXrsjNs2XCCMKhGEod4T6s1bZAAskNfR4ZCQLkicocoWBrZAjfbZCJg5Wk9xhaXl2bZAohZC32QEdZAcPgLZCozjYZD',
+            access_token: 'EAAagTuIJs0EBAP5klBi4RKyT0ZCxo63jZCi1fbBZA9MBsN0GKZBj9PjtS1zNjL95dWxGqHZBo7b7VJ3yZBhUxzDqS44x8xf2xNfsGnnqVwBaNs3OACTksZCVjAhZB3Hx6wzZBqm5aZAx6uhclp5OuwsQwFuKH5soTEeb0hnnaQYlSYZAZBmU5KI0etYiteNbTlotZC1cZD',
             q: 'swing_dance'
         },
         dataType: 'json',
