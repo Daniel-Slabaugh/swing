@@ -77,10 +77,20 @@ function getDataFromFacebookApi(longitude, latitude, dist) {
     },
     dataType: 'json',
     type: 'GET',
-    success: function(result) {
-
-      console.log(result);
-    }
+    success: function(data) {
+      console.log(data);
+      var resultElement = '';
+      if (data.data.length > 0) {
+          data.data.forEach(function(object) {
+              resultElement += '<li>' + object.name + '</li>';
+          });
+      } else {
+          resultElement += '<p>No results</p>';
+      }
+      $('#results').html(resultElement);
+      $("#search-page").hide();
+      $("#results-page").show();
+      }
   };
   $.ajax(settings);
 }
