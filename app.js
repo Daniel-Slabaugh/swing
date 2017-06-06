@@ -25,6 +25,12 @@ $(document).ready(function() {
       alert("Incorrect Zipcode");
     }
   })
+
+  $("#search-again").click(function(e) {
+    e.preventDefault();
+    $("#results-page").hide();
+    $("#search-page").show();
+  })
   
 });
 
