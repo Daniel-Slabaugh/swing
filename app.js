@@ -83,7 +83,7 @@ function getDataFromFacebookApi(longitude, latitude, dist) {
       var resultElement = '';
       if (data.data.length > 0) {
           data.data.forEach(function(object) {
-              resultElement += '<li>' + object.name + '</li>';
+              resultElement += '<tr><td><a href="https://www.facebook.com/' + object.id + '">' + object.name + '</a></td></tr>';
           });
       } else {
           resultElement += '<p>No results</p>';
