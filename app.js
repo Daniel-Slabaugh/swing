@@ -19,10 +19,11 @@ $(document).ready(function() {
   $("#search").submit(function(e) {
     e.preventDefault();
     var zipcode = $("#zipcode").val();
-    getDataFromMapsApi(zipcode, recieveMapsData);
-    1609.34
-    // $("#search-page").hide();
-    // $("#welcome-page").show();
+    if (!isNaN(zipcode) && zipcode.length == 5) {
+      getDataFromMapsApi(zipcode, recieveMapsData);
+    } else {
+      alert("Incorrect Zipcode");
+    }
   })
   
 });
