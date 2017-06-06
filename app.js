@@ -20,6 +20,7 @@ $(document).ready(function() {
     e.preventDefault();
     var zipcode = $("#zipcode").val();
     getDataFromMapsApi(zipcode, recieveMapsData);
+    1609.34
     // $("#search-page").hide();
     // $("#welcome-page").show();
   })
@@ -29,33 +30,35 @@ $(document).ready(function() {
 
 
 function getDataFromMapsApi(searchTerm, callback) {
-    console.log(searchTerm, callback);
+  console.log(searchTerm, callback);
 
-    var settings = {
-        url: MAPS_BASE_URL,
-        data: {
-            components: 'postal_code:' + searchTerm,
-            key: 'AIzaSyB09YmR2_3rgQwRuLN_BDOIQiKI9hJAZJc',
-        },
-        dataType: 'json',
-        type: 'GET',
-        success: callback
-    };
-    $.ajax(settings);
+  var settings = {
+    url: MAPS_BASE_URL,
+    data: {
+        components: 'postal_code:' + searchTerm,
+        key: 'AIzaSyB09YmR2_3rgQwRuLN_BDOIQiKI9hJAZJc',
+    },
+    dataType: 'json',
+    type: 'GET',
+    success: function(data) {
+      var resultElement = '';
+      console.log(data);
+      if (data.results.length > 0) {
+        var latitude = data.results[0].geometry.location.lat;
+        var longitude = data.results[0].geometry.location.lng;
+        //not sure if this is best practaces
+        var distance = ($('#distance').val() * 1609.34); // turn miles into meters
+        getDataFromFacebookApi(longitude, latitude, distance);
+      } else {
+        resultElement += '<p>No results</p>';
+      }
+    }
+  };
+  $.ajax(settings);
 }
 
 function recieveMapsData(data) {
-    var resultElement = '';
-    console.log(data);
-    if (data.results.length > 0) {
-      var latitude = data.results[0].geometry.location.lat
-      var longitude = data.results[0].geometry.location.lng
-      var dist = 100000
-      getDataFromFacebookApi(longitude, latitude, dist) 
 
-    } else {
-        resultElement += '<p>No results</p>';
-    }
     // $("#search-page").hide();
     // $("#results-page").show();
 
@@ -63,22 +66,23 @@ function recieveMapsData(data) {
 }
 
 function getDataFromFacebookApi(longitude, latitude, dist) {
-    var settings = {
-        url: FACEBOOK_BASE_URL,
-        data: {
-            center: latitude  + ',' + longitude,
-            distance: dist,
-            type: 'place',
-            access_token: 'EAAagTuIJs0EBAP5klBi4RKyT0ZCxo63jZCi1fbBZA9MBsN0GKZBj9PjtS1zNjL95dWxGqHZBo7b7VJ3yZBhUxzDqS44x8xf2xNfsGnnqVwBaNs3OACTksZCVjAhZB3Hx6wzZBqm5aZAx6uhclp5OuwsQwFuKH5soTEeb0hnnaQYlSYZAZBmU5KI0etYiteNbTlotZC1cZD',
-            q: 'swing_dance'
-        },
-        dataType: 'json',
-        type: 'GET',
-        success: function(result) {
-          console.log(result);
-        }
-    };
-    $.ajax(settings);
+  var settings = {
+    url: FACEBOOK_BASE_URL,
+    data: {
+      center: latitude  + ',' + longitude,
+      distance: dist,
+      type: 'place',
+      access_token: '1865110520443713|TNN7qd7qh7o1HdfMF8GL4Ar6dUw',
+      q: 'swing_dance'
+    },
+    dataType: 'json',
+    type: 'GET',
+    success: function(result) {
+
+      console.log(result);
+    }
+  };
+  $.ajax(settings);
 }
 
 
