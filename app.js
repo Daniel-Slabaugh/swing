@@ -20,7 +20,7 @@ $(document).ready(function() {
     e.preventDefault();
     var zipcode = $("#zipcode").val();
     if (!isNaN(zipcode) && zipcode.length == 5) {
-      getDataFromMapsApi(zipcode, recieveMapsData);
+      getDataFromMapsApi(zipcode);
     } else {
       alert("Incorrect Zipcode");
     }
@@ -36,9 +36,7 @@ $(document).ready(function() {
 
 
 
-function getDataFromMapsApi(searchTerm, callback) {
-  console.log(searchTerm, callback);
-
+function getDataFromMapsApi(searchTerm) {
   var settings = {
     url: MAPS_BASE_URL,
     data: {
@@ -62,14 +60,6 @@ function getDataFromMapsApi(searchTerm, callback) {
     }
   };
   $.ajax(settings);
-}
-
-function recieveMapsData(data) {
-
-    // $("#search-page").hide();
-    // $("#results-page").show();
-
-    // $('.js-search-results').html(resultElement);
 }
 
 function getDataFromFacebookApi(longitude, latitude, dist) {
