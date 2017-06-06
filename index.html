@@ -33,12 +33,15 @@
         <h2 class="text-center">Search</h2>
         <form id="search">
           <h3>Please enter your info</h3>
-          <p>Zipcode</p>
-          <input type="text" name="zipcode" id="zipcode" required>
-          <p>Search radius</p>
-          <input type="text" name="distance" id="distance" required>
+          <div class="form-group">
+            <label for="zipcode">Zipcode</label>
+            <input type="text" class="form-control" name="zipcode" id="zipcode" required>
+          </div>
+          <div class="form-group">
+            <label for="distance">Search Radius (miles)</label>
+            <input type="text" class="form-control" name="distance" id="distance" required>
+          </div>         
           <button class="btn btn-primary btn-block" type="submit">Search</button>
-          <br>              
         </form>    
       </div>
     </div>
@@ -47,7 +50,10 @@
       <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 bg-success">
         <h2 class="text-center">Results:</h2>
         <p>Here are the clubs in your area:</p>
-        <table class="table table-striped" id="results">
+        <table class="table table-striped table-bordered" >
+          <tbody id="results">
+            
+          </tbody>
         </table>
         <button class="btn btn-primary" id="search-again">Search Again</button>
       </div>
