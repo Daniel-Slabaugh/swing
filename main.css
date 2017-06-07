@@ -3,6 +3,10 @@
 	background-size: 100% 100%;
 }
 
+.btn {
+	margin-bottom: 20px;
+}
+
 table {
 	background-color: white;
 }
