@@ -9,11 +9,8 @@ $(document).ready(function() {
 
   $("#start").submit(function(e) {
     e.preventDefault();
-
     $("#search-page").show();
-    $("#welcome-page").hide();   
-        console.log('got here');
- 
+    $("#welcome-page").hide();    
   });
 
   $("#search").submit(function(e) {
