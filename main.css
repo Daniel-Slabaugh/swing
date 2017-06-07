@@ -10,3 +10,7 @@
 table {
 	background-color: white;
 }
+
+.bg-success {
+	border-radius: 25px;
+}
