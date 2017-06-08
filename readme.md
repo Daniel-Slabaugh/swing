@@ -22,6 +22,6 @@ Local Swing Finder allows you to quicky find swing dancing clubs in your area us
 ![Results](Screenshots/results.png)
 
 ## Technology used
- - [Bootstrap](#http://getbootstrap.com/)
- - [Google Maps api](#https://developers.google.com/maps/documentation/javascript/)
- - [Facebook Graph api](#https://developers.facebook.com/docs/graph-api)
+ - [Bootstrap](http://getbootstrap.com/)
+ - [Google Maps api](https://developers.google.com/maps/documentation/javascript/)
+ - [Facebook Graph api](https://developers.facebook.com/docs/graph-api)
