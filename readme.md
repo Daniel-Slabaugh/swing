@@ -1,8 +1,26 @@
-Local Swing Finder
-
-## TEST
+ # Local Swing Finder
 
 
-### TEST 2
+## Table of Contents
+	- [Summary](#summary)
+  - [Welcome page](#welcome-page)
+  - [Search page](#search-page)
+  - [Results page](#results-page)
+  - [Technology used](#technology-used)
 
-#### TEST 3
+## Summary
+Local Swing Finder allows you to quicky find swing dancing clubs in your area using your zipcode and max distance you would like to travel. 
+
+## Welcome page
+![Welcome](#screenshots/welcome.png)
+
+## Search page
+![Search](#screenshots/search.png)
+
+## Results page
+![Results](#screenshots/results.png)
+
+## Technology used
+ - [Bootstrap](#http://getbootstrap.com/)
+ - [Google Maps api](#https://developers.google.com/maps/documentation/javascript/)
+ - [Facebook Graph api](#https://developers.facebook.com/docs/graph-api)
