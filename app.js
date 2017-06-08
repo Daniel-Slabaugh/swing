@@ -42,7 +42,6 @@ function getDataFromMapsApi(searchTerm) {
     type: 'GET',
     success: function(data) {
       var resultElement = '';
-      console.log(data);
       if (data.results.length > 0) {
         var latitude = data.results[0].geometry.location.lat;
         var longitude = data.results[0].geometry.location.lng;
@@ -70,7 +69,6 @@ function getDataFromFacebookApi(longitude, latitude, dist) {
     dataType: 'json',
     type: 'GET',
     success: function(data) {
-      console.log(data);
       var resultElement = '';
       if (data.data.length > 0) {
           data.data.forEach(function(object) {
