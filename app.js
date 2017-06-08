@@ -31,8 +31,6 @@ $(document).ready(function() {
   
 });
 
-
-
 function getDataFromMapsApi(searchTerm) {
   var settings = {
     url: MAPS_BASE_URL,
