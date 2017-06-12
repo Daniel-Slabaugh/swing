@@ -88,32 +88,18 @@ function getDataFromFacebookApi(longitude, latitude, dist) {
 }
 
 function InfiniteRotator()  {
-  var urls = ["swing-pic-1.png", "swing-pic-2.jpg","swing-pic-3.jpg","swing-pic-4.jpg"];
+  var urls = ["swing-pic-1.jpg", "swing-pic-2.jpg","swing-pic-3.jpg","swing-pic-4.png"];
 
-  //initial fade-in time (in milliseconds)
-  var initialFadeIn = 1000;
-
-  //interval between items (in milliseconds)
   var itemInterval = 5000;
 
-  //cross-fade time (in milliseconds)
-  var fadeTime = 2500;
-
-  //count number of items
   var numberOfItems = urls.length;
 
-  //set current item
   var currentItem = 0;
 
   var background = $('.container')
-  //show first item
-  background.css({"background-image":"url(Swing-Dance-image.jpg)"});
-  // background.background-image.fadeIn(initialFadeIn);
+  background.css({"background-image":"url(images/" +urls[currentItem] +")"});
 
-  //loop through the items    
   var infiniteLoop = setInterval(function() {
-
-    // background.background-image.fadeOut(fadeTime)
 
     if (currentItem == numberOfItems - 1) {
       currentItem = 0;
@@ -121,7 +107,6 @@ function InfiniteRotator()  {
       currentItem++;
     }
     background.css({"background-image":"url(images/" +urls[currentItem] +")"});
-  // background.background-image.fadeIn(initialFadeIn);
 
   }, itemInterval);
 }

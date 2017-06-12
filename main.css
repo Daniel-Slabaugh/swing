@@ -1,12 +1,16 @@
 .container {
-	/*background-image: url(Swing-Dance-image.jpg);*/
-	background-size: 100% 100%;
-  transition: background 2s linear;
+  transition: background 1.5s linear;
+  background-size:     cover;                 
+  background-repeat:   no-repeat;
+  background-color: grey;
+  color:#B02943;
 
 }
 
 .btn {
 	margin-bottom: 20px;
+  background-color:#B02943;
+  border:0px;
 }
 
 table {
@@ -15,4 +19,7 @@ table {
 
 .bg-success {
 	border-radius: 25px;
+}
+
+#start-screen, #search-page {
 }
