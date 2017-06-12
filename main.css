@@ -1,6 +1,8 @@
-#welcome-page {
-	/*background-image: url(swing.png);*/
+.container {
+	/*background-image: url(Swing-Dance-image.jpg);*/
 	background-size: 100% 100%;
+  transition: background 2s linear;
+
 }
 
 .btn {

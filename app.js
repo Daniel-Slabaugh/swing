@@ -7,6 +7,8 @@ $(document).ready(function() {
   $("#search-page").hide();
   $("#results-page").hide();
 
+  InfiniteRotator()
+
   $("#start").submit(function(e) {
     e.preventDefault();
     $("#search-page").show();
@@ -80,10 +82,46 @@ function getDataFromFacebookApi(longitude, latitude, dist) {
       $('#results').html(resultElement);
       $("#search-page").hide();
       $("#results-page").show();
-      }
+      },
   };
   $.ajax(settings);
 }
 
+function InfiniteRotator()  {
+  var urls = ["swing-pic-1.png", "swing-pic-2.jpg","swing-pic-3.jpg","swing-pic-4.jpg"];
 
-// search?center=43.025015,-87.913646&distance=10000&q=swing&type=place
+  //initial fade-in time (in milliseconds)
+  var initialFadeIn = 1000;
+
+  //interval between items (in milliseconds)
+  var itemInterval = 5000;
+
+  //cross-fade time (in milliseconds)
+  var fadeTime = 2500;
+
+  //count number of items
+  var numberOfItems = urls.length;
+
+  //set current item
+  var currentItem = 0;
+
+  var background = $('.container')
+  //show first item
+  background.css({"background-image":"url(Swing-Dance-image.jpg)"});
+  // background.background-image.fadeIn(initialFadeIn);
+
+  //loop through the items    
+  var infiniteLoop = setInterval(function() {
+
+    // background.background-image.fadeOut(fadeTime)
+
+    if (currentItem == numberOfItems - 1) {
+      currentItem = 0;
+    } else {
+      currentItem++;
+    }
+    background.css({"background-image":"url(images/" +urls[currentItem] +")"});
+  // background.background-image.fadeIn(initialFadeIn);
+
+  }, itemInterval);
+}
